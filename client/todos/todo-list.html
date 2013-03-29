@@ -4,13 +4,13 @@
         <div class="well span4">
             <strong>{{remaining()}}</strong> av
             <strong>{{todos.length}}</strong> kvar
-            <button class="btn btn-danger btn-small" ng-click="arkivera()">Arkivera</button>
+            <button class="btn btn-danger btn-small" ng-click="archive()">Arkivera</button>
             <hr>
             <ul class="unstyled">
                 <li ng-repeat="todo in todos">
                     <label class="checkbox" ng-class="{done : todo.done}">
                         <input type="checkbox" ng-model="todo.done" ng-change="todo.$update()"/>
-                        {{todo.text}} ({{todo.id}})
+                        {{todo.text}}
                     </label>
                 </li>
                 <li class="ghost" ng-class="{typing: todoText}">
@@ -48,7 +48,7 @@
                 <li class="ghost typing">
                     <label class="checkbox">
                         <input type="checkbox" disabled="disabled"/>
-                        Sprätta en pi&hellip;
+                        Mangla la&hellip;
                     </label>
                 </li>
             </ul>

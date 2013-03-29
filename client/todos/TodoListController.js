@@ -20,14 +20,16 @@ angular.module("todos").controller("TodoListController", [
             });
         };
 
-        $scope.arkivera = function () {
-            var grouped = $scope.todos.groupBy("done");
-            $scope.todos = grouped[false] || [];
-            if (grouped[true]) {
-                grouped[true].forEach(function (todo) {
+        $scope.archive = function () {
+            $scope.todos.filter(function (todo) {
+                return todo.done;
+            }).forEach(function (todo) {
                     todo.$remove();
                 });
-            }
+
+            $scope.todos = $scope.todos.filter(function (todo) {
+                return !todo.done;
+            });
         }
     }
 
