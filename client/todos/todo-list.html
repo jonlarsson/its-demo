@@ -20,9 +20,9 @@
                     </label>
                 </li>
             </ul>
-            <form class="form-inline" ng-submit="addTodo()">
-                <input type="text" class="input-medium" ng-model="todoText">
-                <button class="btn btn-primary" type="submit">Lägg till</button>
+            <form class="form-inline" name="todoForm" ng-submit="addTodo()">
+                <input type="text" class="input-medium" required ng-model="todoText">
+                <button class="btn btn-primary" ng-disabled="todoForm.$invalid" type="submit">Lägg till</button>
             </form>
         </div>
 
@@ -53,7 +53,7 @@
                 </li>
             </ul>
             <form class="form-inline">
-                <input type="text" class="input-medium" value="Sprätta en pi"/>
+                <input type="text" class="input-medium" value="Mangla la"/>
                 <button class="btn btn-primary" type="submit">Lägg till</button>
             </form>
         </div>
