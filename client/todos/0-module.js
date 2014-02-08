@@ -1,1 +1,1 @@
-angular.module("todos", ["ngResource"]);
+angular.module("todos", []);

@@ -1,3 +1,4 @@
 .idea
 node_modules
 its-demo.iml
+bower_components

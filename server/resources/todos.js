@@ -34,5 +34,6 @@ exports.update = function (req, res) {
 exports.remove = function (req, res) {
     todos = todos.filter(function (todo) {
         return todo.id != req.params.id;
-    })
+    });
+    res.send(204);
 };

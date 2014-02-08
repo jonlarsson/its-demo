@@ -1,15 +1,20 @@
 angular.module("todos").controller("TodoListController", [
-    "$scope", "TodoResource",
-    function ($scope, TodoResource) {
-        $scope.todos = TodoResource.query();
+    "$scope", "Todo",
+    function ($scope, Todo) {
+
+        $scope.todos = [];
+        Todo.list().then(function (todos) {
+            $scope.todos = todos;
+        });
+
         $scope.todoText = "";
 
         $scope.addTodo = function () {
-            var todo = new TodoResource({
+            var todo = new Todo({
                 text: $scope.todoText,
                 done: false
             });
-            todo.$create();
+            todo.create();
             $scope.todos.push(todo);
             $scope.todoText = "";
         };
@@ -20,11 +25,17 @@ angular.module("todos").controller("TodoListController", [
             });
         };
 
+        $scope.archivePossible = function () {
+            return $scope.todos.some(function (todo) {
+                return todo.done;
+            });
+        }
+
         $scope.archive = function () {
             $scope.todos.filter(function (todo) {
                 return todo.done;
             }).forEach(function (todo) {
-                    todo.$remove();
+                    todo.remove();
                 });
 
             $scope.todos = $scope.todos.filter(function (todo) {

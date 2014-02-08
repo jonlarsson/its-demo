@@ -18,6 +18,7 @@ app.configure(function () {
     app.use(express.methodOverride());
     app.use(app.router);
     app.use(express.static(path.join(__dirname, '../client')));
+    app.use("/lib", express.static(path.join(__dirname, "../bower_components")));
 });
 
 app.configure('development', function () {
