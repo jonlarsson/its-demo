@@ -1,20 +1,16 @@
-angular.module("todos").controller("TodoListController", [
-    "$scope", "Todo",
-    function ($scope, Todo) {
+angular.module("todos").controller("TodoListController",
+    function ($scope, TodoResource) {
 
-        $scope.todos = [];
-        Todo.list().then(function (todos) {
-            $scope.todos = todos;
-        });
+        $scope.todos = TodoResource.query();
 
         $scope.todoText = "";
 
         $scope.addTodo = function () {
-            var todo = new Todo({
+            var todo = new TodoResource({
                 text: $scope.todoText,
                 done: false
             });
-            todo.create();
+            todo.$create();
             $scope.todos.push(todo);
             $scope.todoText = "";
         };
@@ -35,7 +31,7 @@ angular.module("todos").controller("TodoListController", [
             $scope.todos.filter(function (todo) {
                 return todo.done;
             }).forEach(function (todo) {
-                    todo.remove();
+                    todo.$delete();
                 });
 
             $scope.todos = $scope.todos.filter(function (todo) {
@@ -44,4 +40,4 @@ angular.module("todos").controller("TodoListController", [
         }
     }
 
-]);
+);
