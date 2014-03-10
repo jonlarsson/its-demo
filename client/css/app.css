@@ -1,18 +1,18 @@
-label.done {
+label.besokt {
     text-decoration: line-through;
     color: grey;
 }
 
 li.ghost label {
     color: transparent;
-    text-shadow: 0 0 1px rgba(0,128,0,0.5);
+    text-shadow: 0 0 1px rgba(0, 128, 0, 0.5);
 }
 
 li.ghost {
     opacity: 0;
 }
 
-li.ghost.typing {
+li.ghost.skriver {
     opacity: 1;
     -webkit-transition: opacity 1s;
 }

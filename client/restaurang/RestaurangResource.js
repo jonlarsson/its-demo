@@ -1,11 +1,10 @@
-angular.module("todos").factory("TodoResource",
+angular.module("restauranger").factory("RestaurangResource",
     function ($resource) {
-        var TodoResource = $resource("/api/todos/:id", {
+        return $resource("/api/restauranger/:id", {
             id: "@id"
         }, {
             update: {method: "PUT"},
             create: {method: "POST"}
         });
-        return TodoResource;
     }
 );

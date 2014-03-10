@@ -3,7 +3,7 @@
  */
 
 var express = require('express')
-    , todos = require('./resources/todos')
+    , restauranger = require('./resources/restauranger')
     , http = require('http')
     , path = require('path')
     , sugar = require('sugar');
@@ -25,11 +25,11 @@ app.configure('development', function () {
     app.use(express.errorHandler());
 });
 
-app.get('/api/todos', todos.list);
-app.get('/api/todos/:id', todos.get);
-app.put('/api/todos/:id', todos.update);
-app.delete('/api/todos/:id', todos.remove);
-app.post('/api/todos', todos.create);
+app.get('/api/restauranger', restauranger.list);
+app.get('/api/restauranger/:id', restauranger.get);
+app.put('/api/restauranger/:id', restauranger.update);
+app.delete('/api/restauranger/:id', restauranger.remove);
+app.post('/api/restauranger', restauranger.create);
 
 http.createServer(app).listen(app.get('port'), function () {
     console.log("Express server listening on port " + app.get('port'));

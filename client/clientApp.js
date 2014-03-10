@@ -1,1 +1,1 @@
-angular.module('clientApp', ['ngResource', 'todos']);
+angular.module('clientApp', ['ngResource', 'restauranger']);
